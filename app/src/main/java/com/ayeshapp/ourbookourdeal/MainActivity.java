@@ -6,12 +6,20 @@ import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ViewFlipper;
 
+import java.util.ArrayList;
+
 public class MainActivity extends AppCompatActivity {
+
+
 
     ViewFlipper image_flipper;
 
@@ -23,10 +31,12 @@ public class MainActivity extends AppCompatActivity {
         //loading the default fragment
         loadFragment(new HomeFragment());
 
+
         //Getting bottom navigation and attaching to listener
         BottomNavigationView bottomNav = findViewById(R.id.bottom_navigation);
         bottomNav.setOnNavigationItemSelectedListener(navListener);
     }
+
 
     private BottomNavigationView.OnNavigationItemSelectedListener navListener = new BottomNavigationView.OnNavigationItemSelectedListener() {
         @Override
@@ -65,18 +75,5 @@ public class MainActivity extends AppCompatActivity {
             return true;
         }
         return false;
-    }
-
-    public void imageFlipper(int image){
-        ImageView img = new ImageView(this);
-        img.setBackgroundResource(image);
-
-        image_flipper.addView(img);
-        image_flipper.setFlipInterval(4000); //4sec
-        image_flipper.setAutoStart(true);
-
-        image_flipper.setInAnimation(this, android.R.anim.slide_in_left);
-        //image_flipper.setInAnimation(this, android.R.anim.slide_out_right);
-
     }
 }
