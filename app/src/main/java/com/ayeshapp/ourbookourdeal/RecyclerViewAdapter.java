@@ -46,6 +46,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
                 .asBitmap()
                 .load(mImageUrls.get(position))
                 .into(holder.image);
+
         holder.bookName.setText(mBookName.get(position));
         holder.image.setOnClickListener(new View.OnClickListener() {
             @Override
